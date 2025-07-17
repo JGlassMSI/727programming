@@ -2,6 +2,69 @@
 ## 3.0
 SBR-001008,"1 Minute Bit",false,"0",,,,,,,"On for 30 seconds and Off for 30 seconds",,,,false,,"SBR",,false
 SBR-001009,"2 Second Bit",false,"0",,,,,,,"On for 1 second and Off for 1 second",,,,false,,"SBR",,false
+SSTRUC-000009,"AMC",false,,,,,,,,"System Structure for an AMC Module",,,,false,,"SSTRUC","AMC4",false
+S32-000038,"AMC.Ax1AxisStatus",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000033,"AMC.Ax1Deviation",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000035,"AMC.Ax1EncPosition",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+C-000054,"AMC.Ax1In1",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000055,"AMC.Ax1In2",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000056,"AMC.Ax1In3",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000057,"AMC.Ax1In4",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000058,"AMC.Ax1In5",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000059,"AMC.Ax1In6",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000060,"AMC.Ax1Out1",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000061,"AMC.Ax1Out2",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000062,"AMC.Ax1Out3",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+S32-000034,"AMC.Ax1Position",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000037,"AMC.Ax1ResetPosition",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000036,"AMC.Ax1Velocity",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000044,"AMC.Ax2AxisStatus",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000039,"AMC.Ax2Deviation",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000041,"AMC.Ax2EncPosition",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+C-000063,"AMC.Ax2In1",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000064,"AMC.Ax2In2",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000065,"AMC.Ax2In3",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000066,"AMC.Ax2In4",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000067,"AMC.Ax2In5",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000068,"AMC.Ax2In6",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000069,"AMC.Ax2Out1",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000070,"AMC.Ax2Out2",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000071,"AMC.Ax2Out3",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+S32-000040,"AMC.Ax2Position",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000043,"AMC.Ax2ResetPosition",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000042,"AMC.Ax2Velocity",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000050,"AMC.Ax3AxisStatus",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000045,"AMC.Ax3Deviation",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000047,"AMC.Ax3EncPosition",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+C-000072,"AMC.Ax3In1",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000073,"AMC.Ax3In2",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000074,"AMC.Ax3In3",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000075,"AMC.Ax3In4",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000076,"AMC.Ax3In5",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000077,"AMC.Ax3In6",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000078,"AMC.Ax3Out1",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000079,"AMC.Ax3Out2",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000080,"AMC.Ax3Out3",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+S32-000046,"AMC.Ax3Position",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000049,"AMC.Ax3ResetPosition",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000048,"AMC.Ax3Velocity",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000056,"AMC.Ax4AxisStatus",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000051,"AMC.Ax4Deviation",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000053,"AMC.Ax4EncPosition",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+C-000081,"AMC.Ax4In1",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000082,"AMC.Ax4In2",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000083,"AMC.Ax4In3",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000084,"AMC.Ax4In4",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000085,"AMC.Ax4In5",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000086,"AMC.Ax4In6",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000087,"AMC.Ax4Out1",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000088,"AMC.Ax4Out2",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+C-000089,"AMC.Ax4Out3",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+S32-000052,"AMC.Ax4Position",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000055,"AMC.Ax4ResetPosition",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+S32-000054,"AMC.Ax4Velocity",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
+C-000053,"AMC.ModuleReady",false,"0",,,,,,,,false,false,"0",false,,"C","AMC4",false
+S32-000032,"AMC.ModuleStatus",false,"0",,,,,,,,false,false,"0",false,,"S32","AMC4",false
 SBR-001002,"Always Off Bit",false,"0",,,,,,,"Always off",,,,false,,"SBR",,false
 SBR-001017,"Array out of range error",false,"0",,,,,,,"Active if an array index is outside the range of the array",,,,false,,"SBR",,false
 SWR-001514,"Array range error rung location",false,"0",,,,,,,"Rung Number in which ""Array out of range error"" occurred",,,,false,,"SWR",,false
@@ -174,6 +237,7 @@ STR-000002,"GS_MainWheelRead.ExcResponse",false,,,,15,,,,,,,,false,,"STR","GSR",
 C-000010,"GS_MainWheelRead.InProgress",false,"0",,,,,,,,false,false,"0",false,,"C","GSR",false
 C-000012,"GS_MainWheelRead.Success",false,"0",,,,,,,,false,false,"0",false,,"C","GSR",false
 C-000014,"GS_MainWheelRead.Timeout",false,"0",,,,,,,,false,false,"0",false,,"C","GSR",false
+C-000092,"Home_Maingear",false,"0",,,,,,,,false,false,"0",false,,"C",,false
 SBR-001015,"I/O Configuration Error",false,"0",,,,,,,"Active if actual I/O configuration and project I/O configuration do not match",,,,false,,"SBR",,false
 SBR-001014,"I/O Error",false,"0",,,,,,,"Active for any module error (such as a blown fuse)",,,,false,,"SBR",,false
 SWRW-001758,"Identify Module Base Number",false,"0",,,,,,,"Base number of module to be identified (See ""Requested Module Name"" tag)",,,,false,,"SWRW",,false
@@ -198,8 +262,26 @@ MST-0.0.0.4,"MST-0.0.0.4",false,"0",,,,,,,"RJ-12 5V Failed or Overloaded",false,
 MST-0.0.0.65,"MST-0.0.0.65",false,"0",,,,,,,"Ethernet Heartbeat Timeout Bit",false,false,"0",false,"MST-0.0.0.65","MST",,false
 MST-0.0.0.66,"MST-0.0.0.66",false,"0",,,,,,,"Ethernet Port Buffer Full Bit (95% Full)",false,false,"0",false,"MST-0.0.0.66","MST",,false
 MST-0.0.0.67,"MST-0.0.0.67",false,"0",,,,,,,"Ethernet Port Ready Bit",false,false,"0",false,"MST-0.0.0.67","MST",,false
+AR1C-000001,"MSeq1_Input_array()",FALSE,,,,,,1,,,,,,false,,"AR1C",
+AR1C-000001(1),"MSeq1_Input_array(1)",FALSE,"0",,,,,1,,,,,,false,,"AR1C",,false
+SSTRUC-000011,"MSeq_1",false,,,,,,,,"System Structure for Motion Sequencer",,,,false,,"SSTRUC","MSEQ",false
+C-000094,"MSeq_1.Complete",false,"0",,,,,,,,false,false,"0",false,,"C","MSEQ",false
+C-000093,"MSeq_1.InProgress",false,"0",,,,,,,,false,false,"0",false,,"C","MSEQ",false
+S32-000066,"MSeq_1.Jerk",false,"0",,,,,,,,false,false,"0",false,,"S32","MSEQ",false
+S32-000065,"MSeq_1.Ramps",false,"0",,,,,,,,false,false,"0",false,,"S32","MSEQ",false
+S32-000064,"MSeq_1.Segment",false,"0",,,,,,,,false,false,"0",false,,"S32","MSEQ",false
+S32-000063,"MSeq_1.Status",false,"0",,,,,,,,false,false,"0",false,,"S32","MSEQ",false
 DI-0.1.1.1,"Main Wheel Down Limit",false,"0",,,,,,,,false,false,"0",false,"DI-0.1.1.1","DI",,false
 DI-0.1.1.2,"Main Wheel Up Limit",false,"0",,,,,,,,false,false,"0",false,"DI-0.1.1.2","DI",,false
+SSTRUC-000010,"MainGear_Home",false,,,,,,,,"System Structure for Find Home",,,,false,,"SSTRUC","HOME",false
+S32-000059,"MainGear_Home.Accel",false,"0",,,,,,,,false,false,"0",false,,"S32","HOME",false
+C-000091,"MainGear_Home.Complete",false,"0",,,,,,,,false,false,"0",false,,"C","HOME",false
+S32-000060,"MainGear_Home.Decel",false,"0",,,,,,,,false,false,"0",false,,"S32","HOME",false
+C-000090,"MainGear_Home.InProgress",false,"0",,,,,,,,false,false,"0",false,,"C","HOME",false
+S32-000061,"MainGear_Home.Position",false,"0",,,,,,,,false,false,"0",false,,"S32","HOME",false
+S32-000057,"MainGear_Home.Speed1",false,"0",,,,,,,,false,false,"0",false,,"S32","HOME",false
+S32-000058,"MainGear_Home.Speed2",false,"0",,,,,,,,false,false,"0",false,,"S32","HOME",false
+S32-000062,"MainGear_Home.Status",false,"0",,,,,,,,false,false,"0",false,,"S32","HOME",false
 C-000025,"MainWheel_AutoRead",false,"0",,,,,,,,false,false,"0",false,,"C",,false
 S32-000006,"MainWheel_Direction",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
 S32-000007,"MainWheel_FaultReset",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
@@ -281,3 +363,11 @@ SBR-001011,"Switch in Stop Bit",false,"0",,,,,,,"Active if CPU Switch is down (S
 SWR-001507,"Total Scan Count1",false,"0",,,,,,,"Total number of scans since entering Run mode (S32 low word)",,,,false,,"SWR",,false
 SWR-001508,"Total Scan Count2",false,"0",,,,,,,"Total number of scans since entering Run mode (S32 high word)",,,,false,,"SWR",,false
 SBR-001016,"Watchdog Timeout",false,"0",,,,,,,"Active if the overall scan time (logic and I/O) has exceeded the limit set in the project",,,,false,,"SBR",,false
+S32-000028,"_InnerFlap_Direction",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
+S32-000029,"_InnerFlap_FaultReset",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
+S32-000024,"_MainWheel_Direction",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
+S32-000025,"_MainWheel_FaultReset",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
+S32-000026,"_NoseWheel_Direction",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
+S32-000027,"_NoseWheel_FaultReset",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
+S32-000030,"_OuterFlap_Direction",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
+S32-000031,"_OuterFlap_FaultReset",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
