@@ -93,6 +93,22 @@ SWR-001516,"Current I/O Config Error Base",false,"0",,,,,,,"I/O base in which ""
 SWR-001515,"Current I/O Config Error Group",false,"0",,,,,,,"I/O group in which ""I/O Configuration Error"" occurred",,,
 SWR-001517,"Current I/O Config Error Slot",false,"0",,,,,,,"I/O slot in which ""I/O Configuration Error"" occurred",,,
 SWR-001511,"Current Non-critical Error",false,"0",,,,,,,"Current Non-Critical Error number (0 if no active errors present)",,,
+S32-000013,"Direction",false,"0",,,,,,,,false,false,"0"
+C-000039,"Drive_InnerFlap_Write.Complete",false,"0",,,,,,,,false,false,"0"
+C-000041,"Drive_InnerFlap_Write.Error",false,"0",,,,,,,,false,false,"0"
+STR-000006,"Drive_InnerFlap_Write.ExcResponse",false,,,,15,,,,,,,
+C-000038,"Drive_InnerFlap_Write.InProgress",false,"0",,,,,,,,false,false,"0"
+S32-000012,"Drive_InnerFlap_Write.JogFrequency",false,"0",,,,,,,,false,false,"0"
+S32-000011,"Drive_InnerFlap_Write.RunFrequency",false,"0",,,,,,,,false,false,"0"
+C-000040,"Drive_InnerFlap_Write.Success",false,"0",,,,,,,,false,false,"0"
+C-000042,"Drive_InnerFlap_Write.Timeout",false,"0",,,,,,,,false,false,"0"
+S32-000008,"Drive_MainWheel_Read.ActFrequency",false,"0",,,,,,,,false,false,"0"
+C-000021,"Drive_MainWheel_Read.Complete",false,"0",,,,,,,,false,false,"0"
+C-000023,"Drive_MainWheel_Read.Error",false,"0",,,,,,,,false,false,"0"
+STR-000004,"Drive_MainWheel_Read.ExcResponse",false,,,,15,,,,,,,
+C-000020,"Drive_MainWheel_Read.InProgress",false,"0",,,,,,,,false,false,"0"
+C-000022,"Drive_MainWheel_Read.Success",false,"0",,,,,,,,false,false,"0"
+C-000024,"Drive_MainWheel_Read.Timeout",false,"0",,,,,,,,false,false,"0"
 C-000016,"Drive_MainWheel_Write.Complete",false,"0",,,,,,,,false,false,"0"
 C-000018,"Drive_MainWheel_Write.Error",false,"0",,,,,,,,false,false,"0"
 STR-000003,"Drive_MainWheel_Write.ExcResponse",false,,,,15,,,,,,,
@@ -101,9 +117,33 @@ S32-000005,"Drive_MainWheel_Write.JogFrequency",false,"0",,,,,,,,false,false,"0"
 S32-000004,"Drive_MainWheel_Write.RunFrequency",false,"0",,,,,,,,false,false,"0"
 C-000017,"Drive_MainWheel_Write.Success",false,"0",,,,,,,,false,false,"0"
 C-000019,"Drive_MainWheel_Write.Timeout",false,"0",,,,,,,,false,false,"0"
+C-000028,"Drive_NoseWheel_Write.Complete",false,"0",,,,,,,,false,false,"0"
+C-000030,"Drive_NoseWheel_Write.Error",false,"0",,,,,,,,false,false,"0"
+STR-000005,"Drive_NoseWheel_Write.ExcResponse",false,,,,15,,,,,,,
+C-000027,"Drive_NoseWheel_Write.InProgress",false,"0",,,,,,,,false,false,"0"
+S32-000010,"Drive_NoseWheel_Write.JogFrequency",false,"0",,,,,,,,false,false,"0"
+S32-000009,"Drive_NoseWheel_Write.RunFrequency",false,"0",,,,,,,,false,false,"0"
+C-000029,"Drive_NoseWheel_Write.Success",false,"0",,,,,,,,false,false,"0"
+C-000031,"Drive_NoseWheel_Write.Timeout",false,"0",,,,,,,,false,false,"0"
+S32-000023,"Drive_OuterFlap_Read.ActFrequency",false,"0",,,,,,,,false,false,"0"
+C-000049,"Drive_OuterFlap_Read.Complete",false,"0",,,,,,,,false,false,"0"
+C-000051,"Drive_OuterFlap_Read.Error",false,"0",,,,,,,,false,false,"0"
+STR-000008,"Drive_OuterFlap_Read.ExcResponse",false,,,,15,,,,,,,
+C-000048,"Drive_OuterFlap_Read.InProgress",false,"0",,,,,,,,false,false,"0"
+C-000050,"Drive_OuterFlap_Read.Success",false,"0",,,,,,,,false,false,"0"
+C-000052,"Drive_OuterFlap_Read.Timeout",false,"0",,,,,,,,false,false,"0"
+C-000044,"Drive_OuterFlap_Write.Complete",false,"0",,,,,,,,false,false,"0"
+C-000046,"Drive_OuterFlap_Write.Error",false,"0",,,,,,,,false,false,"0"
+STR-000007,"Drive_OuterFlap_Write.ExcResponse",false,,,,15,,,,,,,
+C-000043,"Drive_OuterFlap_Write.InProgress",false,"0",,,,,,,,false,false,"0"
+S32-000020,"Drive_OuterFlap_Write.JogFrequency",false,"0",,,,,,,,false,false,"0"
+S32-000019,"Drive_OuterFlap_Write.RunFrequency",false,"0",,,,,,,,false,false,"0"
+C-000045,"Drive_OuterFlap_Write.Success",false,"0",,,,,,,,false,false,"0"
+C-000047,"Drive_OuterFlap_Write.Timeout",false,"0",,,,,,,,false,false,"0"
 SWR-001526,"Ethernet Speed [External]",false,"0",,,,,,,"""Ethernet"" port speed (Ethernet 10 or 100)",,,
 SWR-001527,"Ethernet Speed [Internal]",false,"0",,,,,,,"""Remote I/O"" port speed (Ethernet 10 or 100)",,,
 SBR-001004,"Every Other Scan Bit",false,"0",,,,,,,"Toggles at the start of each scan",,,
+S32-000014,"FaultReset",false,"0",,,,,,,,false,false,"0"
 SWR-001509,"Firmware Version",false,"0",,,,,,,"CPU Firmware Version Number in Hex (ex: 0x0102 is version 01.02 or 1.2)",,,
 SSTR-000104,"Firmware Version[CPU]",false,,,,50,,,,"CPU firmware version viewed as 001.000.009.023",,,
 SWR-001528,"Firmware Version[major]",false,"0",,,,,,,"CPU firmware Major version number in hex. (ex:  0x0100 =  major version 1.0)",,,
@@ -136,6 +176,8 @@ SBRW-001002,"Initiate_New_Date",false,"0",,,,,,,"Set On to change clock date (se
 SBRW-001001,"Initiate_New_Time",false,"0",,,,,,,"Set On to change clock time (see ""Clock Hours Set"" tag)",,,
 DI-0.1.1.6,"Inner Flap In Limit",false,"0",,,,,,,,false,false,"0"
 DI-0.1.1.5,"Inner Flap Out Limit",false,"0",,,,,,,,false,false,"0"
+S32-000017,"InnerFlap_Direction",false,"0",,,,,,,,false,false,"0"
+S32-000018,"InnerFlap_FaultReset",false,"0",,,,,,,,false,false,"0"
 SWR-001504,"Last Logic Scan Time [x100=usec]",false,"0",,,,,,,"Most recent logic scan time",,,
 SWR-001501,"Last Scan Interval [x100=usec]",false,"0",,,,,,,"Most recent overall scan time",,,
 MST-0.0.0.1,"MST-0.0.0.1",false,"0",,,,,,,"RJ-12 Heartbeat Timeout Bit",false,false,"0"
@@ -150,9 +192,11 @@ MST-0.0.0.66,"MST-0.0.0.66",false,"0",,,,,,,"Ethernet Port Buffer Full Bit (95% 
 MST-0.0.0.67,"MST-0.0.0.67",false,"0",,,,,,,"Ethernet Port Ready Bit",false,false,"0"
 DI-0.1.1.1,"Main Wheel Down Limit",false,"0",,,,,,,,false,false,"0"
 DI-0.1.1.2,"Main Wheel Up Limit",false,"0",,,,,,,,false,false,"0"
+C-000025,"MainWheel_AutoRead",false,"0",,,,,,,,false,false,"0"
 S32-000006,"MainWheel_Direction",false,"0",,,,,,,,false,false,"0"
 S32-000007,"MainWheel_FaultReset",false,"0",,,,,,,,false,false,"0"
 C-000007,"MainWheel_Jog",false,"0",,,,,,,,false,false,"0"
+C-000026,"MainWheel_ManualRead",false,"0",,,,,,,,false,false,"0"
 C-000006,"MainWheel_Run",false,"0",,,,,,,,false,false,"0"
 C-000008,"MainWheel_RunModeData",false,"0",,,,,,,,false,false,"0"
 C-000009,"MainWheel_StopModeData",false,"0",,,,,,,,false,false,"0"
@@ -200,10 +244,20 @@ SSTR-000039,"Noncritical Error Log String 19",false,,,,50,,,,"19th most recent n
 SSTR-000040,"Noncritical Error Log String 20",false,,,,50,,,,"20th most recent noncritical error message",,,
 DI-0.1.1.3,"Nose Wheel Down Limit",false,"0",,,,,,,,false,false,"0"
 DI-0.1.1.4,"Nose Wheel Up Limit",false,"0",,,,,,,,false,false,"0"
+C-000036,"NoseWheel_AutoRead",false,"0",,,,,,,,false,false,"0"
+S32-000015,"NoseWheel_Direction",false,"0",,,,,,,,false,false,"0"
+S32-000016,"NoseWheel_FaultReset",false,"0",,,,,,,,false,false,"0"
+C-000033,"NoseWheel_Jog",false,"0",,,,,,,,false,false,"0"
+C-000032,"NoseWheel_Run",false,"0",,,,,,,,false,false,"0"
+C-000034,"NoseWheel_RunModeData",false,"0",,,,,,,,false,false,"0"
+C-000035,"NoseWheel_StopModeData",false,"0",,,,,,,,false,false,"0"
+C-000037,"NoseWheell_ManualRead",false,"0",,,,,,,,false,false,"0"
 SWRW-000251,"Number of Critical Errors",false,"0",,,,,,,"Number of critical errors",,,
 SWRW-000252,"Number of Non-critical Errors",false,"0",,,,,,,"Number of noncritical errors",,,
 DI-0.1.1.8,"Outer Flap In Limit",false,"0",,,,,,,,false,false,"0"
 DI-0.1.1.7,"Outer Flap Out Limit",false,"0",,,,,,,,false,false,"0"
+S32-000021,"OuterFlap_Direction",false,"0",,,,,,,,false,false,"0"
+S32-000022,"OuterFlap_FaultReset",false,"0",,,,,,,,false,false,"0"
 SSTR-000105,"PLC LCD Display[CPU]",false,,,,50,,,,"PLC LCD Data Display",,,
 SWR-001505,"Peak Logic Scan Time [x100=usec]",false,"0",,,,,,,"Longest logic scan time",,,
 SWR-001502,"Peak Scan Interval [x100=usec]",false,"0",,,,,,,"Longest overall scan time",,,
