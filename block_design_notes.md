@@ -4,7 +4,7 @@
 
 - [State Machine in Ladder Logic](https://www.solisplc.com/tutorials/programming-a-state-machine-in-ladder-logic)
 
-## 3-Phase Motors
+## 3-Phase Motors - General
 
 ### Action Conditions
 
@@ -22,4 +22,29 @@
 
 ### State Transition
 
-- 
+## Action List
+
+- Main Gear
+  - Up
+  - Down
+  - Home
+  - Jog Up
+  - Jog Down
+- Nose Gear
+  - Up
+  - Down
+  - Home
+  - Jog Up
+  - Jog Down
+- Inboard Flap
+  - Up
+  - Down
+  - Home
+  - Jog Up
+  - Jog Down
+- Outboard Flap
+  - Up
+  - Down
+  - Home
+  - Jog Up
+  - Jog Down
