@@ -51,6 +51,7 @@ The working files for developing a PLC/VFD controller for the 727 plane @ MSI.
 
 - [Productivity 2000 Hardware User Manual](https://cdn.automationdirect.com/static/manuals/p2userm/p2userm.pdf)
 - [Productivity Suite Online Manual](https://www.automationdirect.com/productivity/software/help)
+- [C-More HDMI Software Online Manual](https://www.automationdirect.com/c-more/cm5/software-help)
 
 ### Videos
 
