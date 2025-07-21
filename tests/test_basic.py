@@ -15,7 +15,7 @@ class NoMatchingImageException(pyautogui.ImageNotFoundException):
         super().__init__(msg)
 
 
-def get_location(img: Path | str | Sequence[Path | str], name = None):
+def get_location(img: Path | str | Sequence[Path | str], name = None, center = True):
     """Get the location onscreen of the center of an image
 
     Args:
@@ -30,7 +30,8 @@ def get_location(img: Path | str | Sequence[Path | str], name = None):
     """
     if isinstance(img, Path) or isinstance (img, str):
         try:
-            loc = pyautogui.locateCenterOnScreen(str(img))
+            if center: loc = pyautogui.locateCenterOnScreen(str(img))
+            else: loc = pyautogui.locateOnScreen(str(img))
         except pyautogui.ImageNotFoundException as err:
             raise NoMatchingImageException(img, name) from err
         return loc
@@ -89,14 +90,29 @@ def test_setup():
     # Open data view window is it's not already open
     with pause_length(0.5):
         pyautogui.hotkey('ctrl', 'shift', 'f3') 
-        data_view = get_location([IMAGES / "dataview_header_focused.PNG"])
+        data_view = get_location([IMAGES / "dataview_icon.PNG"])
     
     # Move dataview window out of the way of the menu bar
     pyautogui.moveTo(data_view)
-    pyautogui.dragTo(600, 200, duration=.5)
+    pyautogui.dragTo(20, 20, duration=.5)
 
     # Resize the dataview window to a known size
-    # TODO
+    # Shrink window
+    upper_data_corner = get_location(IMAGES / "dataview_icon.PNG", center=False)
+    pyautogui.moveTo(upper_data_corner)
+    pyautogui.moveRel(-12, -12)
+    pyautogui.dragRel(pyautogui.size()[0]-200, pyautogui.size()[1]-200, duration=.5) 
+    # Reposition
+    upper_data_corner = get_location(IMAGES / "dataview_icon.PNG", center=False) 
+    pyautogui.moveTo(upper_data_corner)
+    pyautogui.dragTo(200, 200, duration = .5)
+    #Enlarge
+    with pause_length(0.5):
+        corner = get_location(IMAGES / "dataview_icon.PNG", center=False)
+        pyautogui.moveTo(corner)
+        pyautogui.moveRel(32, 36)
+    pyautogui.dragRel(800, 800, duration=.5)
+
 
     # Resize applicable dataview columns so we can find values later
     # TODO
