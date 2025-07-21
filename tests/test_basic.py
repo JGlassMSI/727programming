@@ -4,15 +4,9 @@ from typing import Sequence
 
 import pyautogui
 
+from .support import NoMatchingImageException
+
 IMAGES = Path(__file__).parent / 'testbasic_images'
-
-class NoMatchingImageException(pyautogui.ImageNotFoundException):
-    def __init__(self, *args: object) -> None:
-        img = args[0]
-        name = args[1] if len(args) > 1 else None
-        msg = f"Could not find {name if name else 'pixels matching ' + str(img)} on primary monitor {f"({str(img)})" if name else ""}"
-        super().__init__(msg)
-
 
 def get_location(img: Path | str | Sequence[Path | str], name = None, center = True):
     """Get the location onscreen of the center of an image

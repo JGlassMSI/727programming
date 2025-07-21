@@ -1,3 +1,4 @@
 *.pdf
 *screenshots
 *venv*
+*.out*

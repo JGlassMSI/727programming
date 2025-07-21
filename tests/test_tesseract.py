@@ -1,6 +1,10 @@
 from pathlib import Path
 
-from .support import assert_image_contains_text, assert_image_contains_image
+import pyscreeze
+
+from .support import assert_image_contains_text, assert_image_contains_image, get_data_from_dataview
+
+pyscreeze.USE_IMAGE_NOT_FOUND_EXCEPTION = False
 
 IMAGES = Path(__file__).parent / 'ocr_test_images'
 
@@ -19,3 +23,8 @@ def test_tesseract_on_dataview_rows():
 
     assert_image_contains_text(IMAGES / 'dataview_line_bool_unchecked.png', "Drive_MainWheel_Write.Error")
     assert_image_contains_image(IMAGES / 'dataview_line_bool_unchecked.png', IMAGES / "checkbox_empty.png")
+
+def test_getting_dataview_data():
+    data = get_data_from_dataview(IMAGES / "dataview_2.png")
+    print(data)
+    assert False
