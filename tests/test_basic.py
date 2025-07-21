@@ -4,7 +4,6 @@ from typing import Sequence
 
 import pyautogui
 
-
 IMAGES = Path(__file__).parent / 'testbasic_images'
 
 class NoMatchingImageException(pyautogui.ImageNotFoundException):
@@ -106,17 +105,9 @@ def test_setup():
     upper_data_corner = get_location(IMAGES / "dataview_icon.PNG", center=False) 
     pyautogui.moveTo(upper_data_corner)
     pyautogui.dragTo(200, 200, duration = .5)
-    #Enlarge
+    # Resize applicable dataview columns so we can find values later
     with pause_length(0.5):
         corner = get_location(IMAGES / "dataview_icon.PNG", center=False)
         pyautogui.moveTo(corner)
         pyautogui.moveRel(32, 36)
     pyautogui.dragRel(800, 800, duration=.5)
-
-
-    # Resize applicable dataview columns so we can find values later
-    # TODO
-
-    #----
-
-    # 

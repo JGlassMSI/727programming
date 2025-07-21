@@ -63,6 +63,7 @@ The working files for developing a PLC/VFD controller for the 727 plane @ MSI.
 ### Setting up the test environment
 
 - You will need Python 3.13 running on your system
+- You will need [tesseract 5](https://tesseract-ocr.github.io/tessdoc/Installation.html) running on your system
 - From the root folder, run:
 
 ```sh
