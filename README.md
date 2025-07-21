@@ -57,3 +57,23 @@ The working files for developing a PLC/VFD controller for the 727 plane @ MSI.
 
 - [Basics of GS Drives and Productivity Suite](https://www.automationdirect.com/videos/video?videoToPlay=UU1bfRmbx7s)
 - [PS-Automated Motion Contorller Playlist](https://www.youtube.com/playlist?list=PLPdypWXY_ROqe8nDp227ALBn2Cs9CcP2A)
+
+## Tests
+
+### Setting up the test environment
+
+- You will need Python 3.13 running on your system
+- From the root folder, run:
+
+```sh
+python -m venv venv
+
+# ./venv/script/activate.ps1 # Windows 
+# source ./venv/bin/activate # Linux/Mac
+
+python -c 'import sys; print(sys.executable)' # Verify that this points to ./venv
+python -m pip install -r requirements.txt
+
+```
+
+- 
