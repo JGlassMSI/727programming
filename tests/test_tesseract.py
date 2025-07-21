@@ -25,6 +25,6 @@ def test_tesseract_on_dataview_rows():
     assert_image_contains_image(IMAGES / 'dataview_line_bool_unchecked.png', IMAGES / "checkbox_empty.png")
 
 def test_getting_dataview_data():
-    data = get_data_from_dataview(IMAGES / "dataview_2.png")
+    data = get_data_from_dataview(IMAGES / "dataview_3.png")
     print(data)
     assert False

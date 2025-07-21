@@ -23,8 +23,9 @@ class NoMatchingImageException(pyautogui.ImageNotFoundException):
         msg = f"Could not find {name if name else 'pixels matching ' + str(img)} on primary monitor {f"({str(img)})" if name else ""}"
         super().__init__(msg)
 
-def normalize_tag_name(tagname: str) -> str:
+def normalize_tag_name(tagname: str | None) -> str | None:
     #TODO make this better
+    if not tagname: return tagname
     return (tagname.strip(" |_\n")
             .replace(" ", "")
             .replace("|", "")
@@ -46,19 +47,19 @@ def dump_user_words_to_file(data_file: str | Path = CSV_PATH, outfile = WORDS_PA
         for line in generate_user_words_from_file(data_file):
             f.write(line + "\n")
 
-def robust_image_to_string(img: Path | str | Image.Image, left_steps = 10, resize = 1, tagname = None) -> str | None:
+def robust_image_to_string(img: Path | str | Image.Image, left_steps = 10, resize = 1, use_words = False, dump = False) -> str | None:
     if not isinstance(img, Image.Image):
         img = Image.open(str(img))
 
     
     if resize != 1:
         size = img.size
-        img = img.resize((size[0]*resize, size[1]*resize))
+        img = img.resize((size[0]*resize, size[1]*resize), Image.Resampling.LANCZOS)
     
     for _ in range(left_steps):
-        if text := pytesseract.image_to_string(img, config=f'--psm 7 --oem 3 --user-words {WORDS_PATH.absolute()}'): return text
+        if text := pytesseract.image_to_string(img, config='--psm 7 --oem 3' +  f' --user-words {WORDS_PATH.absolute()}' if use_words else ''): return text
         img = img.crop((.1, 0, img.width, img.height))
-    img.save(f".out/{uuid.uuid4()}.png")
+    if dump: img.save(f".out/{uuid.uuid4()}.png")
     return None
 
 
@@ -77,7 +78,7 @@ def assert_image_contains_image(haystack_image: Path | str, needle_image: Path):
 
 
 
-def get_data_from_dataview(img: Path | str | Image.Image) -> dict[str, int]:
+def get_data_from_dataview(img: Path | str | Image.Image) -> dict[str, int | str | None]:
     """Feed an image of the whole dataview window, extract data
 
     Args:
@@ -114,15 +115,13 @@ def get_data_from_dataview(img: Path | str | Image.Image) -> dict[str, int]:
     VALUE_LEFT = ROW_LEFT + 308
     VALUE_RIGHT = VALUE_LEFT + 57
 
-    values: dict[str, int] = {}
+    values: dict[str, int | str | None] = {}
 
     row_index = 0
     while True:
         row_top = TOP_OF_ROWS + row_index * ROW_HEIGHT
         tagname_image = img.crop((ROW_LEFT, row_top, ROW_RIGHT, row_top + ROW_HEIGHT + ROW_HEIGHT_PAD))
-        size = tagname_image.size
-        tagname_image = tagname_image.resize((int(size[0]*3.8), int(size[1]*3.8)), resample=Image.Resampling.LANCZOS)
-        tagname = normalize_tag_name(pytesseract.image_to_string(tagname_image))
+        tagname = normalize_tag_name(robust_image_to_string(tagname_image, resize=3, use_words=True, dump=True))
         if not tagname:
             tagname_image.save(".out/first_failed_tagname_lookup.png")
             break
@@ -136,7 +135,7 @@ def get_data_from_dataview(img: Path | str | Image.Image) -> dict[str, int]:
         elif unchecked_box and not checked_box: value = 0
         elif checked_box and unchecked_box: raise ValueError(f"Box for tagname {tagname} was detected as both checked and not checked")
         else:
-            value = robust_image_to_string(value_image, resize=4)
+            value = robust_image_to_string(value_image, resize=4, left_steps=1)
             print(f"Initial OCR: {tagname!r}:{value}")
 
         values[tagname] = value

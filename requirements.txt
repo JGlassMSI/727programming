@@ -3,3 +3,4 @@ pytest
 pyscreeze
 pillow
 pytesseract
+opencv-python
