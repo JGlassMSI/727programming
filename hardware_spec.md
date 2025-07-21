@@ -7,6 +7,7 @@ This specification describes new hardare to be installed into the 727 Exhibit at
 ## System Description
 
 The automation system consists of:
+
 - 4 electromecanical axes (Main Landing Gear, Nose Gear, Inner Flaps, Outer Flaps)
 - 7 Pneumatic axes (Main landing gear door, krueger flaps, spoilers, ailerons, rudder, elevator, and thrust reversers)
 - 7 (TODO: Verify number) lighting outputs (Navigation Lights, landing lights, rotating beacon, turnoff lights, wing lights, nosewheel lights, cockpit flasher).
@@ -18,11 +19,12 @@ The motors, pneumatic cylinders, and lighting fixutres, as well as the wiring wh
 ##  New Hardware
 
 The new system shall include:
+
 - An industrial-quality PlC, with:
-    - AC or DC Outputs sufficient to directly drive all the pneumatic axes
-    - AC or DC Outputs sufficient to directly drive all the lighting axes
-    - Sufficient interconnects for the remaining components below>
-    - Capability to interface with a remote show-scheduling program via network and/or serial communication
+  - AC or DC Outputs sufficient to directly drive all the pneumatic axes
+  - AC or DC Outputs sufficient to directly drive all the lighting axes
+  - Sufficient interconnects for the remaining components below>
+  - Capability to interface with a remote show-scheduling program via network and/or serial communication
 - Four VFDs for dirving the electromechanical axes
 - A Motion Control module for interfacing with the VFDs with the PLC
 - Encoders or other similar sensors to determine the real position of each electromechanical axis
