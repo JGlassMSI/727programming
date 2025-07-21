@@ -9,33 +9,30 @@ IMAGES = Path(__file__).parent / 'ocr_test_images'
 
 pytesseract.pytesseract.tesseract_cmd = r'c:\Program Files\Tesseract-OCR\tesseract.exe'
 
+def assert_image_contains_text(path: Path | str, text: str, resize = 1):
+    text = text.strip().replace(" ", "")
+    image = Image.open(str(path))
+    if resize != 1:
+        size = image.size
+        image = image.resize((size[0]*resize, size[1]*resize))
+    ocr_text = pytesseract.image_to_string(image)
+    assert dedent(text) in ocr_text.strip().replace(" ", "")
+
+def assert_image_contains_image(haystack_image: Path | str, needle_image: Path | str):
+    assert list(_locateAll_pillow(str(needle_image), str(haystack_image)))
+
 def test_tesseract():
-    text = pytesseract.image_to_string(Image.open(str(IMAGES / 'test_tess.png')))
-    assert dedent("""\
+    assert_image_contains_text(IMAGES / 'test_tess.png', """\
                 This is a lot of 12 point text to test the
                 ocr code and see if it works on all types
-                of file format.""") in text
+                of file format.""")
 
 def test_tesseract_on_dataview_rows():
-    int_line_image = Image.open(str(IMAGES / 'dataview_line_int.png'))
-    size = int_line_image.size
-    large = int_line_image.resize((size[0]*2, size[1]*2))
-    text = pytesseract.image_to_string(large)
-    assert "Drive_MainWheel_Write.RunFrequency" in text
-    assert "15" in text
+    assert_image_contains_text(IMAGES / 'dataview_line_int.png', "Drive_MainWheel_Write.RunFrequency", resize=2)
+    assert_image_contains_text(IMAGES / 'dataview_line_int.png', "15", resize=2)
 
-    bool_line_image = Image.open(str(IMAGES / 'dataview_line_bool.png'))
-    size = bool_line_image.size
-    large = bool_line_image.resize((size[0]*2, size[1]*2))
-    text = pytesseract.image_to_string(large)
-    assert "Drive_MainWheel_Write. Timeout" in text
-    filled_boxes = _locateAll_pillow(str(IMAGES / "checkbox_checked.png"), str(IMAGES / 'dataview_line_bool.png'))
-    assert list(filled_boxes)
+    assert_image_contains_text(IMAGES / 'dataview_line_bool.png', "Drive_MainWheel_Write. Timeout")
+    assert_image_contains_image(IMAGES / 'dataview_line_bool.png', IMAGES / "checkbox_checked.png")
 
-    bool_line_image = Image.open(str(IMAGES / 'dataview_line_bool_unchecked.png'))
-    size = bool_line_image.size
-    large = bool_line_image.resize((size[0]*2, size[1]*2))
-    text = pytesseract.image_to_string(large)
-    assert "Drive_MainWheel_Write.Error" in text
-    filled_boxes = _locateAll_pillow(str(IMAGES / "checkbox_empty.png"), str(IMAGES / 'dataview_line_bool_unchecked.png'))
-    assert list(filled_boxes)
+    assert_image_contains_text(IMAGES / 'dataview_line_bool_unchecked.png', "Drive_MainWheel_Write.Error")
+    assert_image_contains_image(IMAGES / 'dataview_line_bool_unchecked.png', IMAGES / "checkbox_empty.png")
