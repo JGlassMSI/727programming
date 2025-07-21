@@ -46,6 +46,9 @@ The working files for developing a PLC/VFD controller for the 727 plane @ MSI.
 
 - Ladder logic is being built in Producitvity Suite 4.4.0
 - HMI software being built in C-More Programming Software (CM5) v8.23
+- Reference Libraries:
+  - [pytesseract](https://github.com/madmaze/pytesseract)
+  - [pyautogui](https://pyautogui.readthedocs.io/en/latest/index.html)
 
 ### Manuals
 
