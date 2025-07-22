@@ -1,5 +1,8 @@
 from time import sleep
 from pymodbus.client import ModbusTcpClient
+from pymodbus.pdu.pdu import pack_bitstring
+
+from support import get_tag_info_from_file
 
 def modbus_experiment():
     client = ModbusTcpClient('127.0.0.1')       # Create client object
@@ -19,6 +22,29 @@ def modbus_experiment():
             count += 1
     except KeyboardInterrupt:
         client.close()                                 # Disconnect devic
+
+def modbus_experiment_2():
+    taginfo = get_tag_info_from_file()
+    for tagname, data in taginfo.items():
+        print(f"{tagname: <50} : {data.get('MODBUS Start Address')}")
+    for key in ["MainWheel_FaultReset"]:
+        print(f"{key: <40} has value {get_tag_value(key)}")
+    
+
+def get_tag_value(tagname):
+    client = ModbusTcpClient('127.0.0.1')       # Create client object
+    client.connect()                               # connect to device
+
+    tagsinfo = get_tag_info_from_file()
+    address = tagsinfo[tagname].get('MODBUS Start Address')
+    if address: response = client.read_coils(int(address))
+    client.close()   
+
+    if address: 
+        print(f"{response!r}")
+        print(dir(response))
+        print(pack_bitstring(response.bits))
+    return None
 
 
 def test_modbus():
@@ -42,4 +68,4 @@ def test_modbus():
 
 
 if __name__ == "__main__":
-    modbus_experiment()
+    modbus_experiment_2()
