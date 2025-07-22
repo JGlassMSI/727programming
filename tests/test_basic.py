@@ -4,9 +4,16 @@ from typing import Sequence
 
 import pyautogui
 
-from .support import NoMatchingImageException
 
 IMAGES = Path(__file__).parent / 'testbasic_images'
+
+class NoMatchingImageException(pyautogui.ImageNotFoundException):
+    def __init__(self, *args: object) -> None:
+        img = args[0]
+        name = args[1] if len(args) > 1 else None
+        msg = f"Could not find {name if name else 'pixels matching ' + str(img)} on primary monitor {f"({str(img)})" if name else ""}"
+        super().__init__(msg)
+
 
 def get_location(img: Path | str | Sequence[Path | str], name = None, center = True):
     """Get the location onscreen of the center of an image
@@ -32,7 +39,6 @@ def get_location(img: Path | str | Sequence[Path | str], name = None, center = T
         if images := iter(img):
             for i in images:
                 try:
-                    print(f"Trying to find location of {i}")
                     loc = get_location(i, name)
                     return loc
                 except pyautogui.ImageNotFoundException as err:
@@ -68,9 +74,9 @@ def pause_length(pause_per_step: float):
         pyautogui.PAUSE = _previous_pause
 
 
-def test_setup():
+def test_compile():
     # Maximize main productivity suite window
-    click_image([IMAGES / 'mainwindow_header.PNG', IMAGES / 'mainwindow_header_2.PNG', IMAGES / 'mainwindow_header_3.PNG'], name="Production Suite Programming Software window")
+    click_image(IMAGES / 'mainwindow_header.PNG', name="Production Suite Programming Software window")
     pyautogui.hotkey('super', 'up') 
 
     # Try to compile program early - if it doesn't compile, might as well bail
@@ -80,29 +86,3 @@ def test_setup():
     pyautogui.moveTo(comp_label)
     pyautogui.moveRel(0, 40)
     pyautogui.leftClick()
-
-    # Open data view window is it's not already open
-    with pause_length(0.5):
-        pyautogui.hotkey('ctrl', 'shift', 'f3') 
-        data_view = get_location([IMAGES / "dataview_icon.PNG"])
-    
-    # Move dataview window out of the way of the menu bar
-    pyautogui.moveTo(data_view)
-    pyautogui.dragTo(20, 20, duration=.5)
-
-    # Resize the dataview window to a known size
-    # Shrink window
-    upper_data_corner = get_location(IMAGES / "dataview_icon.PNG", center=False)
-    pyautogui.moveTo(upper_data_corner)
-    pyautogui.moveRel(-12, -12)
-    pyautogui.dragRel(pyautogui.size()[0]-200, pyautogui.size()[1]-200, duration=.5) 
-    # Reposition
-    upper_data_corner = get_location(IMAGES / "dataview_icon.PNG", center=False) 
-    pyautogui.moveTo(upper_data_corner)
-    pyautogui.dragTo(200, 200, duration = .5)
-    # Resize applicable dataview columns so we can find values later
-    with pause_length(0.5):
-        corner = get_location(IMAGES / "dataview_icon.PNG", center=False)
-        pyautogui.moveTo(corner)
-        pyautogui.moveRel(32, 36)
-    pyautogui.dragRel(800, 800, duration=.5)
