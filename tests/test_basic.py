@@ -32,6 +32,7 @@ def get_location(img: Path | str | Sequence[Path | str], name = None, center = T
         if images := iter(img):
             for i in images:
                 try:
+                    print(f"Trying to find location of {i}")
                     loc = get_location(i, name)
                     return loc
                 except pyautogui.ImageNotFoundException as err:
@@ -69,7 +70,7 @@ def pause_length(pause_per_step: float):
 
 def test_setup():
     # Maximize main productivity suite window
-    click_image(IMAGES / 'mainwindow_header.PNG', name="Production Suite Programming Software window")
+    click_image([IMAGES / 'mainwindow_header.PNG', IMAGES / 'mainwindow_header_2.PNG', IMAGES / 'mainwindow_header_3.PNG'], name="Production Suite Programming Software window")
     pyautogui.hotkey('super', 'up') 
 
     # Try to compile program early - if it doesn't compile, might as well bail

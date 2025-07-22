@@ -407,10 +407,12 @@ SBR-001011,"Switch in Stop Bit",false,"0",,,,,,,"Active if CPU Switch is down (S
 SWR-001507,"Total Scan Count1",false,"0",,,,,,,"Total number of scans since entering Run mode (S32 low word)",,,,false,,"SWR",,false
 SWR-001508,"Total Scan Count2",false,"0",,,,,,,"Total number of scans since entering Run mode (S32 high word)",,,,false,,"SWR",,false
 SBR-001016,"Watchdog Timeout",false,"0",,,,,,,"Active if the overall scan time (logic and I/O) has exceeded the limit set in the project",,,,false,,"SBR",,false
+C-000131,"_Clock",false,"0",,,,,,,,false,false,"0",false,,"C",,false
 S32-000028,"_InnerFlap_Direction",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
 S32-000029,"_InnerFlap_FaultReset",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
 S32-000024,"_MainWheel_Direction",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
 S32-000025,"_MainWheel_FaultReset",false,"0",,,,,,,,false,false,"0",false,,"S32",,false
+C-000132,"_NextClock",false,"0",,,,,,,,false,false,"0",false,,"C",,false
 C-000130,"_NoseGear_AnyRequest",false,"0",,,,,,,,false,false,"0",false,,"C",,false
 C-000123,"_NoseGear_DownRequest",false,"0",,,,,,,,false,false,"0",false,,"C",,false
 C-000128,"_NoseGear_HomeRequest",false,"0",,,,,,,,false,false,"0",false,,"C",,false

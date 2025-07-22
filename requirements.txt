@@ -1,6 +1,5 @@
-pyautogui
 pytest
+pymodbus
+pyautogui
 pyscreeze
 pillow
-pytesseract
-opencv-python
