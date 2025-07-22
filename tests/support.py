@@ -1,14 +1,6 @@
-import csv
-from itertools import chain
 from pathlib import Path
-from textwrap import dedent
-import os
-import uuid
-from typing import Generator
 
-from PIL import Image, ImageOps
 from pyscreeze import _locateAll_pillow, locate
-import pytesseract
 import pyautogui
 
 class NoMatchingImageException(pyautogui.ImageNotFoundException):
@@ -20,3 +12,4 @@ class NoMatchingImageException(pyautogui.ImageNotFoundException):
 
 def assert_image_contains_image(haystack_image: Path | str, needle_image: Path):
         assert list(_locateAll_pillow(str(needle_image), str(haystack_image)))
+
