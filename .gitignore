@@ -3,3 +3,4 @@
 *venv*
 *.out*
 *words.txt*
+*pycache*
