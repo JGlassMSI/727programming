@@ -1,29 +1,10 @@
-import csv
-from functools import cache
+
 from contextlib import contextmanager
 from pathlib import Path
-from time import sleep
 from typing import Sequence
 
 import pyautogui
-from pyscreeze import _locateAll_pillow, locate, Point, Box
 import pytest
-
-CSV_BASIC_PATH = Path(__file__).parent.parent / "727_ladder_Basic.csv"
-
-def assert_image_contains_image(haystack_image: Path | str, needle_image: Path):
-        assert list(_locateAll_pillow(str(needle_image), str(haystack_image)))
-
-@cache
-def get_tag_info_from_file(file = CSV_BASIC_PATH) -> dict[str, dict[str, str]]:
-    values = {}
-    with open(file, "r") as lines:
-        for line in csv.DictReader(lines):
-            if name := line.get("Tag Name"):
-                if name in values:
-                     raise ValueError(f"Tag Name {name} already present in tag info.")
-                values[name] = line
-    return values
 
 
 IMAGES = Path(__file__).parent / 'testbasic_images'
@@ -94,20 +75,12 @@ def pause_length(pause_per_step: float):
     finally:
         pyautogui.PAUSE = _previous_pause
 
-def wait_for_image(img, msg = None, *, timeout = 10) -> Point | Box:
-    for _ in range(timeout):
-        sleep(1)
-        img = None
-        try:
-            img = get_location(IMAGES / "need_to_transfer.PNG", msg)
-        except pyautogui.ImageNotFoundException:
-            pass
-        if img: break
-    else:
-        raise NoMatchingImageException(IMAGES / "need_to_transfer.PNG", msg)
-    return img
 
-@pytest.mark.usefixtures("startup")
+@pytest.fixture(scope="session")
+def startup(maximize, compile_all):
+    pass
+
+@pytest.mark.usefixtures("init")
 class PSTest:
     @pytest.fixture(scope="session")
     def maximize(self):
@@ -124,40 +97,3 @@ class PSTest:
         pyautogui.moveTo(comp_label)
         pyautogui.moveRel(0, 40)
         pyautogui.leftClick()
-
-    @pytest.fixture(scope="session")
-    def online_and_transfer(self):
-            # Go Offline and Online Again
-            with pause_length(1):
-                click_image(IMAGES / "offline.PNG", "online button")
-                click_image(IMAGES / "online.PNG", "offline button")
-
-            # Wait for the WARNING about the need to transfer to pop up, make it go away
-            transfer_label = wait_for_image(IMAGES / "need_to_transfer.PNG", "transfer warning message")
-            pyautogui.moveTo(transfer_label)
-            pyautogui.moveRel(0, 40)
-            pyautogui.leftClick()
-
-            # Transfer project to CPU
-            with pause_length(1):
-                click_image(IMAGES / "transfer.PNG", "transfer button")
-                cont = get_location(IMAGES / "retentive_warning.PNG", "retentive tags warning")
-                pyautogui.moveTo(cont)
-                pyautogui.moveRel(0, 40)
-                pyautogui.leftClick()
-
-            # Wait for transfer to complete
-            for _ in range(20):
-                sleep(1)
-                try:
-                    _ = get_location(IMAGES / "transfer_project_to_CPU.png", "project transfer window")
-                except pyautogui.ImageNotFoundException:
-                    break
-            else:
-                raise NoMatchingImageException(IMAGES / "transfer_project_to_CPU.png", "project transfer window")
-
-
-
-    @pytest.fixture(scope="session")
-    def startup(self, maximize, compile_all, online_and_transfer):
-        pass
